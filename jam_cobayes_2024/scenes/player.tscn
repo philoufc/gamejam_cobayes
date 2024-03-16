@@ -279,14 +279,13 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j6aai"]
-radius = 13.0
-height = 40.0
+radius = 8.0
+height = 32.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_2dufd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, -5)
 sprite_frames = SubResource("SpriteFrames_hy6cp")
 animation = &"walk_up_right"
 frame_progress = 0.527804
@@ -294,5 +293,4 @@ frame_progress = 0.527804
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_j6aai")

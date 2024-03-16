@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/Spawner.gd" id="6_f2t60"]
 [ext_resource type="PackedScene" uid="uid://b4vyppu70k8m2" path="res://scenes/Mob.tscn" id="7_tdlst"]
 [ext_resource type="PackedScene" uid="uid://b1jruahbg4kn2" path="res://scenes/world.tscn" id="8_fcl5p"]
-[ext_resource type="Texture2D" uid="uid://dsjeahs4ld75s" path="res://assets/van.png" id="9_lkc5x"]
+[ext_resource type="Texture2D" uid="uid://cpxlanj13xiaf" path="res://assets/van.png" id="9_lkc5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u7fsn"]
 texture = ExtResource("3_u0pjf")

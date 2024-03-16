@@ -1,39 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4vyppu70k8m2"]
+[gd_scene load_steps=4 format=3 uid="uid://b4vyppu70k8m2"]
 
-[ext_resource type="Texture2D" uid="uid://bg8m23fskc68a" path="res://assets/mob_walk_1.png" id="2_18u4y"]
-[ext_resource type="Texture2D" uid="uid://t83hwcb4yi8o" path="res://assets/mob_walk_2.png" id="3_hfvso"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d8yn1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_18u4y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_hfvso")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 3.0
-}]
+[ext_resource type="Script" path="res://scenes/Mob.gd" id="1_rybf6"]
+[ext_resource type="PackedScene" uid="uid://c7cal5c1tskm" path="res://scenes/Slime.tscn" id="2_f4qou"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j53vs"]
-radius = 10.9863
-height = 27.9651
+radius = 16.0
+height = 32.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_rybf6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(318, 158)
-sprite_frames = SubResource("SpriteFrames_d8yn1")
-animation = &"walk"
-speed_scale = 0.75
+[node name="Slime" parent="." instance=ExtResource("2_f4qou")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(318, 158)
 scale = Vector2(4, 4)
 shape = SubResource("CapsuleShape2D_j53vs")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(318, 158)
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(6.4, 6.4)
+
+[node name="UpdatePositionTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="UpdatePositionTimer" to="." method="_on_update_position"]
