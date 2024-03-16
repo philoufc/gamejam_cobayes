@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://c21edo73cr3ae"]
+[gd_scene load_steps=11 format=3 uid="uid://c21edo73cr3ae"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_3ue3l"]
 [ext_resource type="PackedScene" uid="uid://b0v3yopsj2572" path="res://scenes/ui.tscn" id="3_b5u1l"]
 [ext_resource type="Texture2D" uid="uid://o5d6doc06fbn" path="res://assets/tileset.png" id="3_u0pjf"]
-[ext_resource type="PackedScene" uid="uid://b6jpweb4a5qmm" path="res://scenes/argument.tscn" id="5_h01j3"]
+[ext_resource type="PackedScene" path="res://scenes/argument.tscn" id="5_h01j3"]
 [ext_resource type="PackedScene" uid="uid://bpbaaj61ekmw5" path="res://scenes/player.tscn" id="5_u7kpf"]
+[ext_resource type="Script" path="res://scenes/Spawner.gd" id="6_f2t60"]
+[ext_resource type="PackedScene" uid="uid://b4vyppu70k8m2" path="res://scenes/Mob.tscn" id="7_tdlst"]
+[ext_resource type="PackedScene" uid="uid://b1jruahbg4kn2" path="res://scenes/world.tscn" id="8_fcl5p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u7fsn"]
 texture = ExtResource("3_u0pjf")
@@ -190,3 +193,17 @@ position = Vector2(-462, 419)
 
 [node name="Argument5" parent="." instance=ExtResource("5_h01j3")]
 position = Vector2(-342, 334)
+
+[node name="MobSpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("6_f2t60")
+entity = ExtResource("7_tdlst")
+world = ExtResource("8_fcl5p")
+
+[node name="Timer" type="Timer" parent="Spawner"]
+autostart = true
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
