@@ -26,28 +26,26 @@ func _ready():
 			if tile_data == null or tile_data.get_custom_data("walkable") == false:
 				astar_grid.set_point_solid(tile_position)
 
-
-func _process(delta):
-	pass
-
 func _input(event):
 	if event.is_action_pressed("move") == false:
 		return
 	
-	var id_path
-	
+	var id_path = astar_grid.get_id_path(
+		tile_map.local_to_map(global_position),
+		tile_map.local_to_map(get_global_mouse_position()))
 	
 	if is_moving:
 		id_path = astar_grid.get_id_path(
 			tile_map.local_to_map(target_position),
 			tile_map.local_to_map(get_local_mouse_position())
 		)
+		print("is_moving: ", id_path)
 	else:
 		astar_grid.get_id_path(
 			tile_map.local_to_map(global_position),
 			tile_map.local_to_map(get_local_mouse_position())
 		)
-	
+		print("else: ", id_path)
 	if id_path.is_empty() == false:
 		current_id_path = id_path
 	
@@ -67,6 +65,6 @@ func _physics_process(delta):
 		
 		if current_id_path.is_empty() == false:
 			target_position = tile_map.map_to_local(current_id_path.front())
-		else
+		else:
 			is_moving = false
 
