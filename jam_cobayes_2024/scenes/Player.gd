@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var tile_map = $"../World/TileMap"
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
 
 var astar_grid: AStarGrid2D
 var current_id_path: Array[Vector2i]
@@ -70,6 +72,9 @@ func _physics_process(delta):
 		target_position = tile_map.map_to_local(current_id_path.front())
 		is_moving = true
 	
+	
+	walk(get_angle_to(target_position))
+	
 	global_position = global_position.move_toward(target_position, delta * SPEED)
 	
 	if global_position == target_position:
@@ -79,6 +84,7 @@ func _physics_process(delta):
 			target_position = tile_map.map_to_local(current_id_path.front())
 		else:
 			is_moving = false
+			animated_sprite_2d.stop()
 			
 func drawLine(id_path: Array[Vector2i]):
 	var path_line = Line2D.new()
@@ -87,3 +93,22 @@ func drawLine(id_path: Array[Vector2i]):
 		path_line.top_level = true
 		add_child(path_line)
 
+func walk(dir_degree :float) -> void:
+	if dir_degree > -PI/8 && dir_degree <= PI/8:
+		animated_sprite_2d.play("walk_right")
+	elif dir_degree > PI/8 && dir_degree <= 3*PI/8:
+		animated_sprite_2d.play("walk_down_right")
+	elif dir_degree > 3*PI/8 && dir_degree <= 5*PI/8:
+		animated_sprite_2d.play("walk_down")
+	elif dir_degree > 5*PI/8 && dir_degree <= 7*PI/8:
+		animated_sprite_2d.play("walk_down_left")
+	elif dir_degree < -7*PI/8 or dir_degree > 7*PI/8:
+		animated_sprite_2d.play("walk_left")
+	elif dir_degree <= -PI/8 && dir_degree > -3*PI/8:
+		animated_sprite_2d.play("walk_up_right")
+	elif dir_degree <= -3*PI/8 && dir_degree > -5*PI/8:
+		animated_sprite_2d.play("walk_up")
+	elif dir_degree <= -5*PI/8 && dir_degree > -7*PI/8:
+		animated_sprite_2d.play("walk_up_left")
+	
+		
