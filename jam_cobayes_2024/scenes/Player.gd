@@ -25,7 +25,7 @@ func _ready():
 				y + int(astar_grid.region.position.y)
 			)
 			
-			var tile_data = tile_map.get_cell_tile_data(0, tile_position)
+			var tile_data = tile_map.get_cell_tile_data(1, tile_position)
 			
 			if tile_data == null or tile_data.get_custom_data("walkable") == false:
 				astar_grid.set_point_solid(tile_position)
