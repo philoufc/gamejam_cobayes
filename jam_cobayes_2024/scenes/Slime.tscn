@@ -54,11 +54,12 @@ _data = {
 }
 
 [node name="Slime" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.5)
 scale = Vector2(4, 4)
 texture = ExtResource("1_g811k")
 hframes = 7
 vframes = 5
-frame = 28
+frame = 32
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
