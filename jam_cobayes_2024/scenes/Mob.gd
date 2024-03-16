@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-@onready var tile_map = $"../World/TileMap"
-@onready var player = $"../Player"
+@onready var tile_map = $"../../World/TileMap"
+@onready var player = $"../../Player"
 @onready var astar_grid: AStarGrid2D
 @onready var path_line: Line2D
 @onready var target_position: Vector2
@@ -30,10 +30,9 @@ func _on_update_position():
 		destination
 	)
 
-	if(target_position == tile_map.map_to_local(id_path.front())):
-		id_path.pop_front()
-	
-	if id_path.size() > 0:
+	if id_path.size() > 1:
+		if target_position == tile_map.map_to_local(id_path.front()):
+			id_path.pop_front()
 		target_position = tile_map.map_to_local(id_path.front())
 	print("target_position", target_position)
 	# drawLine(id_path)
