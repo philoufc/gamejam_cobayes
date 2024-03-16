@@ -1,11 +1,14 @@
 extends Node2D
 
 @onready var tile_map = $"../World/TileMap"
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
 
 var astar_grid: AStarGrid2D
 var current_id_path: Array[Vector2i]
 var target_position: Vector2
 var is_moving: bool
+const SPEED = 100
 
 func _ready():
 	await get_tree().process_frame
@@ -25,7 +28,7 @@ func _ready():
 				y + int(astar_grid.region.position.y)
 			)
 			
-			var tile_data = tile_map.get_cell_tile_data(0, tile_position)
+			var tile_data = tile_map.get_cell_tile_data(1, tile_position)
 			
 			if tile_data == null or tile_data.get_custom_data("walkable") == false:
 				astar_grid.set_point_solid(tile_position)
@@ -61,7 +64,7 @@ func _input(event):
 		current_id_path = id_path
 	
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if current_id_path.is_empty():
 		return
 	
@@ -69,7 +72,10 @@ func _physics_process(_delta):
 		target_position = tile_map.map_to_local(current_id_path.front())
 		is_moving = true
 	
-	global_position = global_position.move_toward(target_position, 1)
+	
+	walk(get_angle_to(target_position))
+	
+	global_position = global_position.move_toward(target_position, delta * SPEED)
 	
 	if global_position == target_position:
 		current_id_path.pop_front()
@@ -78,6 +84,7 @@ func _physics_process(_delta):
 			target_position = tile_map.map_to_local(current_id_path.front())
 		else:
 			is_moving = false
+			animated_sprite_2d.stop()
 			
 func drawLine(id_path: Array[Vector2i]):
 	var path_line = Line2D.new()
@@ -86,3 +93,22 @@ func drawLine(id_path: Array[Vector2i]):
 		path_line.top_level = true
 		add_child(path_line)
 
+func walk(dir_degree :float) -> void:
+	if dir_degree > -PI/8 && dir_degree <= PI/8:
+		animated_sprite_2d.play("walk_right")
+	elif dir_degree > PI/8 && dir_degree <= 3*PI/8:
+		animated_sprite_2d.play("walk_down_right")
+	elif dir_degree > 3*PI/8 && dir_degree <= 5*PI/8:
+		animated_sprite_2d.play("walk_down")
+	elif dir_degree > 5*PI/8 && dir_degree <= 7*PI/8:
+		animated_sprite_2d.play("walk_down_left")
+	elif dir_degree < -7*PI/8 or dir_degree > 7*PI/8:
+		animated_sprite_2d.play("walk_left")
+	elif dir_degree <= -PI/8 && dir_degree > -3*PI/8:
+		animated_sprite_2d.play("walk_up_right")
+	elif dir_degree <= -3*PI/8 && dir_degree > -5*PI/8:
+		animated_sprite_2d.play("walk_up")
+	elif dir_degree <= -5*PI/8 && dir_degree > -7*PI/8:
+		animated_sprite_2d.play("walk_up_left")
+	
+		

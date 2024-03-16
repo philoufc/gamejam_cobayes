@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyyg0rlkbk88i"]
+[gd_scene load_steps=4 format=3 uid="uid://dyyg0rlkbk88i"]
 
 [ext_resource type="Script" path="res://scenes/main_math.gd" id="1_gcxfr"]
 [ext_resource type="PackedScene" uid="uid://b1jruahbg4kn2" path="res://scenes/world.tscn" id="1_j4ajd"]
 [ext_resource type="PackedScene" uid="uid://b4vyppu70k8m2" path="res://scenes/Mob.tscn" id="2_dpgo6"]
-[ext_resource type="PackedScene" uid="uid://bpbaaj61ekmw5" path="res://scenes/player.tscn" id="4_guujt"]
 
 [node name="WorldMath" type="Node"]
 script = ExtResource("1_gcxfr")
@@ -16,9 +15,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 autostart = true
-
-[node name="Player" parent="." instance=ExtResource("4_guujt")]
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_spawn_mob"]
