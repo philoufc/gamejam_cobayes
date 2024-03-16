@@ -59,3 +59,4 @@ func add_labels(x: int, y: int):
 	tile_label_abs.top_level = true
 	tile_label_abs.label_settings = label_settings
 	tile_map.add_child(tile_label_abs)
+
