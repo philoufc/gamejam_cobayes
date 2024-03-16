@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c21edo73cr3ae"]
+[gd_scene load_steps=8 format=3 uid="uid://c21edo73cr3ae"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_3ue3l"]
 [ext_resource type="PackedScene" uid="uid://b0v3yopsj2572" path="res://scenes/ui.tscn" id="3_b5u1l"]
 [ext_resource type="Texture2D" uid="uid://o5d6doc06fbn" path="res://assets/tileset.png" id="3_u0pjf"]
+[ext_resource type="PackedScene" uid="uid://b6jpweb4a5qmm" path="res://scenes/argument.tscn" id="5_h01j3"]
 [ext_resource type="PackedScene" uid="uid://bpbaaj61ekmw5" path="res://scenes/player.tscn" id="5_u7kpf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u7fsn"]
@@ -175,3 +176,17 @@ visible = false
 
 [node name="Player" parent="." instance=ExtResource("5_u7kpf")]
 position = Vector2(-410, 441)
+
+[node name="Argument" parent="." instance=ExtResource("5_h01j3")]
+
+[node name="Argument2" parent="." instance=ExtResource("5_h01j3")]
+position = Vector2(-139, 167)
+
+[node name="Argument3" parent="." instance=ExtResource("5_h01j3")]
+position = Vector2(-185, 344)
+
+[node name="Argument4" parent="." instance=ExtResource("5_h01j3")]
+position = Vector2(-462, 419)
+
+[node name="Argument5" parent="." instance=ExtResource("5_h01j3")]
+position = Vector2(-342, 334)

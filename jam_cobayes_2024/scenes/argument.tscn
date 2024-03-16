@@ -4,14 +4,16 @@
 [ext_resource type="Script" path="res://scenes/argument.gd" id="1_xlfvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euheu"]
+size = Vector2(60, 60)
 
 [node name="Argument" type="Area2D"]
 script = ExtResource("1_xlfvg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_56f31")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.6, 0.6)
 shape = SubResource("RectangleShape2D_euheu")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

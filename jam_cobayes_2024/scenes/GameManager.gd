@@ -23,6 +23,7 @@ var colors :Dictionary = {
 	4: Color("#C3482D"),
 	5: Color("#44702d"), 
 	6: Color("#405273"), 
+	7: Color("#e9a5e2")
 }
 
 func _ready():

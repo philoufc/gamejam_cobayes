@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpbaaj61ekmw5"]
+[gd_scene load_steps=3 format=3 uid="uid://bpbaaj61ekmw5"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_2dufd"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j6aai"]
+radius = 13.0
+height = 40.0
+
+[node name="Player" type="Area2D"]
 script = ExtResource("1_2dufd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,3 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_j6aai")

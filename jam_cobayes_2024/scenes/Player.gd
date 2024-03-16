@@ -6,6 +6,7 @@ var astar_grid: AStarGrid2D
 var current_id_path: Array[Vector2i]
 var target_position: Vector2
 var is_moving: bool
+const SPEED = 100
 
 func _ready():
 	await get_tree().process_frame
@@ -61,7 +62,7 @@ func _input(event):
 		current_id_path = id_path
 	
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if current_id_path.is_empty():
 		return
 	
@@ -69,7 +70,7 @@ func _physics_process(_delta):
 		target_position = tile_map.map_to_local(current_id_path.front())
 		is_moving = true
 	
-	global_position = global_position.move_toward(target_position, 1)
+	global_position = global_position.move_toward(target_position, delta * SPEED)
 	
 	if global_position == target_position:
 		current_id_path.pop_front()
