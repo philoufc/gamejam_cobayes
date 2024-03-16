@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf43uc7ngjtei"]
+
+[ext_resource type="Texture2D" uid="uid://10rfddiivfqu" path="res://assets/tableau.png" id="1_fx4s1"]
+
+[node name="GameInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 6
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Inventory"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_fx4s1")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="TextureRect" parent="Inventory/NinePatchRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Age" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 66.0
+grow_horizontal = 2
