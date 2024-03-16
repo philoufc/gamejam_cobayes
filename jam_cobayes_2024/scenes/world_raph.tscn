@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c21edo73cr3ae"]
+
+[ext_resource type="PackedScene" uid="uid://b1jruahbg4kn2" path="res://scenes/world.tscn" id="1_6en1o"]
+[ext_resource type="Script" path="res://scenes/Player.gd" id="2_1uuqp"]
+
+[node name="world_raph" type="Node"]
+
+[node name="World" parent="." instance=ExtResource("1_6en1o")]
+visible = false
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(129, 104)
+script = ExtResource("2_1uuqp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
