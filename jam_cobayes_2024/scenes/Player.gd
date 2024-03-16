@@ -39,15 +39,23 @@ func _input(event):
 	if is_moving:
 		id_path = astar_grid.get_id_path(
 			tile_map.local_to_map(target_position),
-			tile_map.local_to_map(get_local_mouse_position())
+			tile_map.local_to_map(tile_map.get_local_mouse_position())
 		)
-		print("is_moving: ", id_path)
+		#print("is_moving: ", id_path)
 	else:
+		var start = tile_map.local_to_map(global_position)
+		var destination = tile_map.local_to_map(tile_map.get_local_mouse_position())
+		#print("mouse : ", tile_map.get_local_mouse_position())
+		#print("event : ", event.position)
+		#print("FIRST P: ", a)
+		#print("LAST P: ", b)
+		#print("-------------")
 		id_path = astar_grid.get_id_path(
-			tile_map.local_to_map(global_position),
-			tile_map.local_to_map(get_local_mouse_position())
+			start,
+			destination
 		)
-		print("else: ", id_path)
+		#drawLine(id_path)
+		
 		
 	if id_path.is_empty() == false:
 		current_id_path = id_path
@@ -70,4 +78,11 @@ func _physics_process(_delta):
 			target_position = tile_map.map_to_local(current_id_path.front())
 		else:
 			is_moving = false
+			
+func drawLine(id_path: Array[Vector2i]):
+	var path_line = Line2D.new()
+	for p in id_path:
+		path_line.add_point(tile_map.map_to_local(p))
+		path_line.top_level = true
+		add_child(path_line)
 
