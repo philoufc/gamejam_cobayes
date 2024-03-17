@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://scenes/Spawner.gd" id="6_f2t60"]
 [ext_resource type="PackedScene" uid="uid://b4vyppu70k8m2" path="res://scenes/Mob.tscn" id="7_tdlst"]
 [ext_resource type="PackedScene" uid="uid://b1jruahbg4kn2" path="res://scenes/world.tscn" id="8_fcl5p"]
-[ext_resource type="Texture2D" uid="uid://cpxlanj13xiaf" path="res://assets/van.png" id="9_lkc5x"]
-[ext_resource type="PackedScene" uid="uid://bp3xcick608df" path="res://scenes/chair.tscn" id="10_ogjc6"]
+[ext_resource type="Texture2D" uid="uid://dsjeahs4ld75s" path="res://assets/van.png" id="9_lkc5x"]
+[ext_resource type="PackedScene" path="res://scenes/chair.tscn" id="10_ogjc6"]
 [ext_resource type="Texture2D" uid="uid://d3q8hvd7cvhxw" path="res://assets/textures/lampadaire.png" id="11_xqkr7"]
-[ext_resource type="Texture2D" uid="uid://b1wy4xqiy2fa6" path="res://assets/orbre.png" id="12_tc4er"]
+[ext_resource type="Texture2D" uid="uid://bs6vm58tdcpl0" path="res://assets/orbre.png" id="12_tc4er"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u7fsn"]
 texture = ExtResource("3_u0pjf")
@@ -216,23 +216,18 @@ position = Vector2(0, -2.5)
 polygon = PackedVector2Array(-26.5, 3, 10.5, 23, 27.5, 13, -9, -4)
 
 [node name="Argument" parent="." instance=ExtResource("5_h01j3")]
-visible = false
 position = Vector2(-116, -1)
 
 [node name="Argument2" parent="." instance=ExtResource("5_h01j3")]
-visible = false
 position = Vector2(-139, 167)
 
 [node name="Argument3" parent="." instance=ExtResource("5_h01j3")]
-visible = false
 position = Vector2(-185, 344)
 
 [node name="Argument4" parent="." instance=ExtResource("5_h01j3")]
-visible = false
 position = Vector2(-462, 419)
 
 [node name="Argument5" parent="." instance=ExtResource("5_h01j3")]
-visible = false
 position = Vector2(-342, 334)
 
 [node name="MobSpawnTimer" type="Timer" parent="."]

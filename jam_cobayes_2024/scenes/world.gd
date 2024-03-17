@@ -38,7 +38,6 @@ func init_map():
 
 func get_middle_cell_coords(tilemap:TileMap) -> Vector2i:
 	var middle_coords :Vector2i = tilemap.get_used_rect().size / 2 + tilemap.get_used_rect().position
-	
 	return middle_coords
 	
 func add_labels(x: int, y: int):
