@@ -3,6 +3,7 @@ extends Node2D
 @onready var tile_map = $"../World/TileMap"
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var scan_nearby_enemies = $ScanNearbyEnemies
+@onready var animation_player = $AnimationPlayer
 
 
 var astar_grid: AStarGrid2D
@@ -123,11 +124,13 @@ func _on_scan_nearby_enemies_area_entered(area):
 	if area.is_in_group("mobs"):
 		nearby_enemies.append(area)
 
+func _on_scan_nearby_enemies_area_exited(area):
+	if area.is_in_group("mobs") && area in nearby_enemies:
+		nearby_enemies.erase(area)
+
 func kill_nearby_enemies():
+	animation_player.play("kill_nearby_vfx")
 	for enemy in nearby_enemies:
-		print("enemy: ", enemy)
-		var tween = create_tween()
-		tween.tween_property(self, "position", position + Vector2(0, -20), 0.5)
-		tween.tween_property(self, "modulate:a", 0.0, 0.5)
-		tween.tween_callback(self.queue_free)
-		nearby_enemies.erase(enemy)
+		enemy.die()
+	nearby_enemies.clear()
+

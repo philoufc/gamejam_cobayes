@@ -1,8 +1,8 @@
-[gd_scene load_steps=81 format=3 uid="uid://bpbaaj61ekmw5"]
+[gd_scene load_steps=86 format=3 uid="uid://bpbaaj61ekmw5"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_2dufd"]
 [ext_resource type="Texture2D" uid="uid://cdw6p6tn35o27" path="res://assets/Player.png" id="2_r72vq"]
-[ext_resource type="PackedScene" path="res://scenes/game_interface.tscn" id="3_vaxge"]
+[ext_resource type="PackedScene" uid="uid://bf43uc7ngjtei" path="res://scenes/game_interface.tscn" id="3_vaxge"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hsxdl"]
 atlas = ExtResource("2_r72vq")
@@ -558,6 +558,15 @@ height = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_7i2r1"]
 radius = 100.0
 
+[sub_resource type="Gradient" id="Gradient_62x56"]
+colors = PackedColorArray(0.761837, 0.415253, 0.0336078, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s8xr3"]
+gradient = SubResource("Gradient_62x56")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.788991, 0.155963)
+
 [sub_resource type="Gradient" id="Gradient_x3tg1"]
 offsets = PackedFloat32Array(0, 0.8)
 colors = PackedColorArray(0.81501, 0.488557, 0.832369, 1, 0, 0, 0, 1)
@@ -567,11 +576,72 @@ gradient = SubResource("Gradient_x3tg1")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="Animation" id="Animation_htmsd"]
+resource_name = "kill_nearby_vfx"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScanNearbyEnemies/KillNearbyVFX:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1.86607, 1, 1),
+"update": 0,
+"values": [0.0, 3.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScanNearbyEnemies/KillNearbyVFX:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mvr54"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScanNearbyEnemies/KillNearbyVFX:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScanNearbyEnemies/KillNearbyVFX:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_unm5f"]
+_data = {
+"RESET": SubResource("Animation_mvr54"),
+"kill_nearby_vfx": SubResource("Animation_htmsd")
+}
+
 [node name="Player" type="Area2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_2dufd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_hy6cp")
 animation = &"walk_right"
 frame_progress = 0.931912
@@ -586,12 +656,26 @@ frame_progress = 0.931912
 shape = SubResource("CapsuleShape2D_j6aai")
 
 [node name="ScanNearbyEnemies" type="Area2D" parent="."]
+show_behind_parent = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScanNearbyEnemies"]
 shape = SubResource("CircleShape2D_7i2r1")
+
+[node name="KillNearbyVFX" type="PointLight2D" parent="ScanNearbyEnemies"]
+show_behind_parent = true
+enabled = false
+energy = 0.0
+texture = SubResource("GradientTexture2D_s8xr3")
+texture_scale = 3.25
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(0.375, 0.375)
 texture = SubResource("GradientTexture2D_c1cm8")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_unm5f")
+}
+
 [connection signal="area_entered" from="ScanNearbyEnemies" to="." method="_on_scan_nearby_enemies_area_entered"]
+[connection signal="area_exited" from="ScanNearbyEnemies" to="." method="_on_scan_nearby_enemies_area_exited"]
