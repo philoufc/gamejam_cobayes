@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://brjwtwk04h8ga"]
+
+[ext_resource type="Texture2D" uid="uid://dovs734ikhil" path="res://assets/textures/caca_numero2.png" id="1_rs7f3"]
+
+[node name="Brouette" type="Sprite2D"]
+
+[node name="Brouette_" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_rs7f3")
+region_enabled = true
+region_rect = Rect2(159.524, 166.121, 85.17, 79.9126)

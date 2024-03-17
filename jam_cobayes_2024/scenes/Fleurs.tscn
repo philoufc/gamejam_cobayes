@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://lhy3fexy27ix"]
+
+[ext_resource type="Script" path="res://scenes/Fleurs.gd" id="1_xngr3"]
+[ext_resource type="Texture2D" uid="uid://dovs734ikhil" path="res://assets/textures/caca_numero2.png" id="2_tdwfx"]
+
+[node name="Fleurs" type="Sprite2D"]
+script = ExtResource("1_xngr3")
+fleurs = 0
+
+[node name="Fleur_Rouge_01" type="Sprite2D" parent="."]
+texture = ExtResource("2_tdwfx")
+region_enabled = true
+region_rect = Rect2(160.525, 68.245, 9.79332, 11.9696)
+
+[node name="Fleur_Rouge_02" type="Sprite2D" parent="."]
+texture = ExtResource("2_tdwfx")
+region_enabled = true
+region_rect = Rect2(174.067, 67.8982, 12.0996, 12.2631)
+
+[node name="Sunflower" type="Sprite2D" parent="."]
+texture = ExtResource("2_tdwfx")
+region_enabled = true
+region_rect = Rect2(177.1, 86.4006, 10.4645, 13.4077)
+
+[node name="Herbes" type="Sprite2D" parent="."]
+texture = ExtResource("2_tdwfx")
+region_enabled = true
+region_rect = Rect2(196.926, 82.8593, 14.0617, 19.948)
+
+[node name="Sunflower_Pack" type="Sprite2D" parent="."]
+texture = ExtResource("2_tdwfx")
+region_enabled = true
+region_rect = Rect2(214.397, 68.5972, 33.2739, 29.4968)
