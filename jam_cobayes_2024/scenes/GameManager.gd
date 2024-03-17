@@ -29,10 +29,13 @@ var colors :Dictionary = {
 }
 
 func _ready():
-	print(ArgumentType)
-	
+	innocence_value = 7
+	elapsed_time = 0
+
 	for argument_type in ArgumentType:
 		arguments[argument_type] = 0
+	
+	_on_interface_change.emit()
 
 func _process(delta):
 	update_elapsed_time(delta)
@@ -89,6 +92,10 @@ func get_age():
 	return str(int(elapsed_time / 6))
 
 func game_over():
-	#TODO: ploguer la bonne scène pour fin de jeu
-	print("GAME OVER BÉBÉ")
 	get_tree().change_scene_to_file("res://scenes/mort_screen.tscn")
+	
+	innocence_value = 7
+	elapsed_time = 0
+
+	for argument_type in ArgumentType:
+		arguments[argument_type] = 0
