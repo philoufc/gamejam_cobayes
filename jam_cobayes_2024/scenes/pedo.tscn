@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dc3yy8wce8ek5"]
 
-[ext_resource type="Texture2D" uid="uid://dsjeahs4ld75s" path="res://assets/van.png" id="1_3h868"]
+[ext_resource type="Texture2D" uid="uid://cpxlanj13xiaf" path="res://assets/van.png" id="1_3h868"]
 [ext_resource type="Texture2D" uid="uid://ccut8wycw71de" path="res://assets/phare.png" id="2_7whwn"]
 
 [node name="Pedo" type="Area2D"]
