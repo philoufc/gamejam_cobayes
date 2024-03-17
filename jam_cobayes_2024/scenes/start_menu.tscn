@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcbk7n6mwtemn"]
+
+[ext_resource type="FontFile" uid="uid://smhqt13mvvsu" path="res://assets/Retro Gaming.ttf" id="1_aqb4l"]
+[ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_px2e6"]
+[ext_resource type="Texture2D" uid="uid://d1v740j1jp4dl" path="res://assets/dem.png" id="2_au8os"]
+
+[sub_resource type="Gradient" id="Gradient_wnls3"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.862745, 0, 1)
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_px2e6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_au8os")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/AspectRatioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 300
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/AspectRatioContainer/MarginContainer"]
+z_index = 50
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ButtonStart" type="Button" parent="CanvasLayer/AspectRatioContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_aqb4l")
+theme_override_font_sizes/font_size = 28
+text = "Commencer"
+
+[node name="ButtonCredits" type="Button" parent="CanvasLayer/AspectRatioContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_aqb4l")
+theme_override_font_sizes/font_size = 28
+text = "Crédits"
+
+[node name="ButtonQuit" type="Button" parent="CanvasLayer/AspectRatioContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_aqb4l")
+theme_override_font_sizes/font_size = 28
+text = "Quitter"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/AspectRatioContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 100
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/AspectRatioContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_aqb4l")
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "[center][wave amp=20.0 freq=2.0 connected=1]Line Ocence et les 7 péchés"
+fit_content = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer"]
+z_index = 10
+position = Vector2(550, 250)
+amount = 200
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1000)
+direction = Vector2(1, 0.5)
+gravity = Vector2(0, 0)
+initial_velocity_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_wnls3")
+
+[connection signal="button_down" from="CanvasLayer/AspectRatioContainer/MarginContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_button_down"]
+[connection signal="button_down" from="CanvasLayer/AspectRatioContainer/MarginContainer/VBoxContainer/ButtonCredits" to="." method="_on_button_credits_button_down"]
+[connection signal="button_down" from="CanvasLayer/AspectRatioContainer/MarginContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_button_down"]
