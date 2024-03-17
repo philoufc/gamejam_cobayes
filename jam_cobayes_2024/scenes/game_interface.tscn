@@ -201,7 +201,6 @@ theme_override_font_sizes/font_size = 22
 text = "10"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_i6ooq")
