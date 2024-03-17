@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://duy5n0gd3366"]
+
+[ext_resource type="Texture2D" uid="uid://crlt5va7ynkwy" path="res://assets/podiome.png" id="1_66dai"]
+[ext_resource type="Script" path="res://scenes/mort_label.gd" id="3_e1gfq"]
+[ext_resource type="FontFile" uid="uid://smhqt13mvvsu" path="res://assets/Retro Gaming.ttf" id="4_mh8ny"]
+
+[sub_resource type="Gradient" id="Gradient_swr1d"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sfjdm"]
+gradient = SubResource("Gradient_swr1d")
+fill = 1
+fill_from = Vector2(0.495726, 0)
+fill_to = Vector2(0.495726, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ywpi"]
+font = ExtResource("4_mh8ny")
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_is6x8"]
+font = ExtResource("4_mh8ny")
+font_size = 18
+
+[node name="mort_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_66dai")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(592, 352)
+rotation = 3.14159
+scale = Vector2(19.553, 16.047)
+texture = SubResource("GradientTexture2D_sfjdm")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 300
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/CenterContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+script = ExtResource("3_e1gfq")
+
+[node name="Title" type="Label" parent="AspectRatioContainer/CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "test"
+label_settings = SubResource("LabelSettings_3ywpi")
+horizontal_alignment = 1
+
+[node name="SubTitle" type="Label" parent="AspectRatioContainer/CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "test
+"
+label_settings = SubResource("LabelSettings_is6x8")
+horizontal_alignment = 1
