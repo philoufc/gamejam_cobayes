@@ -92,6 +92,7 @@ func get_age():
 	return str(int(elapsed_time / 6))
 
 func game_over():
+	AudioManager.walk_sfx_stream_player.stop()
 	get_tree().change_scene_to_file("res://scenes/mort_screen.tscn")
 	
 func init():

@@ -4,8 +4,8 @@ var section = 0
 
 var credits = [
 	'[center][rainbow]Line Ocence et les 7 péchés[/rainbow]\nGame Jam[/center]',
-	'[center][color=red]Développeurs[/color]\nLudo\nMath\nMolie\nPhilou\nRaph[/center]',
-	'[center][color=red]Outils[/color]\nDeveloppé avec Godot Engine[/center]',
+	'[center][color=red]Jeu développé par[/color]\nLudovic Descary\nMathieu Grondin\nMolie Robert\nPhilou Fortier-Charette\nRaphaël Boisvert[/center]',
+	'[center][color=red]Outils[/color]\nDéveloppé avec :\nGodot Engine 4.2.1, \nProcreate, \nGithub, \nPhotoshop, \nLMMS \nLibreSprite[/center]',
 	'[center]Meow! :3[/center]'
 ]
 
