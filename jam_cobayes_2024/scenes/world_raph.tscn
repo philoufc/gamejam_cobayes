@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://b4vyppu70k8m2" path="res://scenes/Mob.tscn" id="7_tdlst"]
 [ext_resource type="PackedScene" uid="uid://b1jruahbg4kn2" path="res://scenes/world.tscn" id="8_fcl5p"]
 [ext_resource type="Texture2D" uid="uid://cpxlanj13xiaf" path="res://assets/van.png" id="9_lkc5x"]
-[ext_resource type="PackedScene" uid="uid://bp3xcick608df" path="res://scenes/chair.tscn" id="10_ogjc6"]
-[ext_resource type="Texture2D" uid="uid://d3q8hvd7cvhxw" path="res://assets/textures/lampadaire.png" id="11_xqkr7"]
+[ext_resource type="PackedScene" path="res://scenes/chair.tscn" id="10_ogjc6"]
+[ext_resource type="PackedScene" uid="uid://b2b83ay3a203x" path="res://scenes/lampe.tscn" id="11_h3kv4"]
 [ext_resource type="Texture2D" uid="uid://8v8hgx1bade6" path="res://assets/textures/Orbre2.png" id="12_x7tfw"]
-[ext_resource type="PackedScene" uid="uid://bku4wtxem6g2s" path="res://scenes/Fleurs.tscn" id="13_84y6n"]
-[ext_resource type="PackedScene" uid="uid://bg0a5pq7ht74c" path="res://scenes/Decorations_Set.tscn" id="13_jtc0r"]
+[ext_resource type="PackedScene" path="res://scenes/Fleurs.tscn" id="13_84y6n"]
+[ext_resource type="PackedScene" path="res://scenes/Decorations_Set.tscn" id="13_jtc0r"]
 [ext_resource type="PackedScene" path="res://scenes/chair_2.tscn" id="15_3ra1c"]
 [ext_resource type="Texture2D" uid="uid://72yhin7dltl3" path="res://assets/textures/Sapinou.png" id="16_5ny1y"]
 
@@ -299,66 +299,6 @@ scale = Vector2(-1, -1)
 flip_h = true
 flip_v = true
 
-[node name="lampadaire" type="Sprite2D" parent="."]
-position = Vector2(-189, -59)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire2" type="Sprite2D" parent="."]
-position = Vector2(-59, -118)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire3" type="Sprite2D" parent="."]
-position = Vector2(609, -266)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire4" type="Sprite2D" parent="."]
-position = Vector2(453, -314)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire10" type="Sprite2D" parent="."]
-position = Vector2(387, 485)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire11" type="Sprite2D" parent="."]
-position = Vector2(-60, 707)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire12" type="Sprite2D" parent="."]
-position = Vector2(-124, -571)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire5" type="Sprite2D" parent="."]
-position = Vector2(252, 5)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire6" type="Sprite2D" parent="."]
-position = Vector2(66, 99)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire7" type="Sprite2D" parent="."]
-position = Vector2(-1179, -107)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire8" type="Sprite2D" parent="."]
-position = Vector2(-798, 244)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
-[node name="lampadaire9" type="Sprite2D" parent="."]
-position = Vector2(-508, -251)
-texture = ExtResource("11_xqkr7")
-offset = Vector2(0, -50)
-
 [node name="Orbre" type="Sprite2D" parent="."]
 position = Vector2(-160, -343)
 scale = Vector2(2.5, 2.5)
@@ -566,12 +506,6 @@ position = Vector2(703, -33)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("16_5ny1y")
 
-[node name="sapinou6" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0, 1)
-position = Vector2(419, -272)
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("16_5ny1y")
-
 [node name="sapinou7" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(1508, -47)
@@ -607,5 +541,54 @@ modulate = Color(1, 1, 0, 1)
 position = Vector2(-1408, -94)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("16_5ny1y")
+
+[node name="sapinou6" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+z_index = 1
+position = Vector2(419, -272)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("16_5ny1y")
+
+[node name="Lampes" type="Node" parent="."]
+
+[node name="Lampe2" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(-64, -120)
+
+[node name="Lampe" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(-192, -56)
+
+[node name="Lampe7" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(64, 104)
+
+[node name="Lampe12" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(256, 8)
+
+[node name="Lampe8" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(384, 488)
+
+[node name="Lampe9" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(-64, 712)
+
+[node name="Lampe10" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(-800, 248)
+
+[node name="Lampe11" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(-1184, -104)
+
+[node name="Lampe5" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(608, -264)
+
+[node name="Lampe6" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(448, -312)
+
+[node name="Lampe3" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(-512, -248)
+
+[node name="Lampe4" parent="Lampes" instance=ExtResource("11_h3kv4")]
+position = Vector2(-128, -568)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.447059, 0.47451, 0.639216, 1)
+blend_mode = 2
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
