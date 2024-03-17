@@ -39,8 +39,8 @@ func _on_update_position():
 	
 	#print("target_position", target_position)
 
-func drawLine(id_path: Array[Vector2i]):
-	pass
+#func drawLine(id_path: Array[Vector2i]):
+#	pass
 	#path_line.clear_points()
 	#for p in id_path:
 		#path_line.add_point(tile_map.map_to_local(p))

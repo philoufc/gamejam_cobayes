@@ -1,0 +1,251 @@
+[gd_scene load_steps=11 format=3 uid="uid://bf43uc7ngjtei"]
+
+[ext_resource type="Texture2D" uid="uid://10rfddiivfqu" path="res://assets/tableau.png" id="1_fx4s1"]
+[ext_resource type="Script" path="res://scenes/game_interface.gd" id="1_yn6io"]
+[ext_resource type="Texture2D" uid="uid://bf1c0ixf26vh7" path="res://assets/argument.png" id="2_uprxw"]
+[ext_resource type="FontFile" uid="uid://smhqt13mvvsu" path="res://assets/Retro Gaming.ttf" id="3_xayjx"]
+[ext_resource type="Texture2D" uid="uid://psqq3cgd4fib" path="res://assets/age.png" id="4_o0pr8"]
+[ext_resource type="Texture2D" uid="uid://be8spoydlrpue" path="res://assets/Progess.png" id="5_l617a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mlpc"]
+texture = ExtResource("1_fx4s1")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6ooq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vtkjb"]
+texture = ExtResource("5_l617a")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vgar"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="GameInterface" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yn6io")
+
+[node name="Inventory" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -62.0
+offset_right = 616.0
+grow_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="PanelContainer" parent="Inventory"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0mlpc")
+
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/Panel"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/Panel/MarginContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="LustIcon" type="TextureRect" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+modulate = Color(0.443137, 0.211765, 0.435294, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("2_uprxw")
+expand_mode = 1
+
+[node name="LustLabel" type="Label" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xayjx")
+theme_override_font_sizes/font_size = 22
+text = "10"
+
+[node name="GluttonyIcon" type="TextureRect" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+modulate = Color(0.921569, 0.588235, 0.380392, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_uprxw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="GluttonyLabel" type="Label" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xayjx")
+theme_override_font_sizes/font_size = 22
+text = "10"
+
+[node name="GreedIcon" type="TextureRect" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+modulate = Color(0.992157, 0.819608, 0.47451, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_uprxw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="GreedLabel" type="Label" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xayjx")
+theme_override_font_sizes/font_size = 22
+text = "10"
+
+[node name="SlothIcon" type="TextureRect" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+modulate = Color(0.733333, 0.764706, 0.815686, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_uprxw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="SlothLabel" type="Label" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xayjx")
+theme_override_font_sizes/font_size = 22
+text = "10"
+
+[node name="WrathIcon" type="TextureRect" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+modulate = Color(0.764706, 0.282353, 0.176471, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_uprxw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="WrathLabel" type="Label" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xayjx")
+theme_override_font_sizes/font_size = 22
+text = "10"
+
+[node name="EnvyIcon" type="TextureRect" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+modulate = Color(0.266667, 0.439216, 0.176471, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_uprxw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EnvyLabel" type="Label" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xayjx")
+theme_override_font_sizes/font_size = 22
+text = "10"
+
+[node name="PrideIcon" type="TextureRect" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+modulate = Color(0.25098, 0.321569, 0.45098, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_uprxw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PrideLabel" type="Label" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xayjx")
+theme_override_font_sizes/font_size = 22
+text = "10"
+
+[node name="NoIcon" type="TextureRect" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+modulate = Color(0.913725, 0.647059, 0.886275, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_uprxw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="NoLabel" type="Label" parent="Inventory/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xayjx")
+theme_override_font_sizes/font_size = 22
+text = "10"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i6ooq")
+
+[node name="TopBar" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TopBar"]
+layout_mode = 2
+
+[node name="AgeIcon" type="TextureRect" parent="PanelContainer/TopBar/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_o0pr8")
+
+[node name="AgeLabel" type="Label" parent="PanelContainer/TopBar/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xayjx")
+theme_override_font_sizes/font_size = 32
+text = "10"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TopBar/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/TopBar/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_xayjx")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/background = SubResource("StyleBoxTexture_vtkjb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7vgar")
+max_value = 7.0
+value = 7.0
+rounded = true

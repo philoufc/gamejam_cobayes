@@ -1,7 +1,8 @@
-[gd_scene load_steps=78 format=3 uid="uid://bpbaaj61ekmw5"]
+[gd_scene load_steps=79 format=3 uid="uid://bpbaaj61ekmw5"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_2dufd"]
 [ext_resource type="Texture2D" uid="uid://cdw6p6tn35o27" path="res://assets/Player.png" id="2_r72vq"]
+[ext_resource type="PackedScene" uid="uid://bf43uc7ngjtei" path="res://scenes/game_interface.tscn" id="3_vaxge"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hsxdl"]
 atlas = ExtResource("2_r72vq")
@@ -567,6 +568,10 @@ animation = &"walk_right"
 frame_progress = 0.931912
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="GameInterface" parent="Camera2D/CanvasLayer" instance=ExtResource("3_vaxge")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_j6aai")
