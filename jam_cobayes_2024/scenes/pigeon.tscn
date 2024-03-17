@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7u4071e2i44m"]
+[gd_scene load_steps=8 format=3 uid="uid://c1do64x0inloy"]
 
 [ext_resource type="Script" path="res://scenes/pigeon.gd" id="1_ks0sg"]
 [ext_resource type="Texture2D" uid="uid://jo3skwp1qh42" path="res://assets/textures/animaux.png" id="1_n8o77"]
@@ -40,6 +40,7 @@ animations = [{
 }]
 
 [node name="Pigeon" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ks0sg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
