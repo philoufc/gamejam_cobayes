@@ -84,7 +84,14 @@ func _on_update_position():
 
 func _on_area_entered(area):
 	if area.name == "Player":
+		print(mob_type)
 		set_deferred("monitoring", false)
+		if GameManager.consume_arguments(mob_type, 1):
+			area.kill_nearby_enemies()
+			return
+		if GameManager.consume_arguments(GameManager.ArgumentType.NO, 1):
+			area.kill_nearby_enemies()
+			return
 		GameManager.adjust_innocence(-1)
 		area.kill_nearby_enemies()
 

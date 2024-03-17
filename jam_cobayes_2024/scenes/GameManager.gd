@@ -61,15 +61,17 @@ func collect_argument(argument_type):
 			arguments["NO"] += 1
 
 func has_enough_arguments(argument_type, required_amount) -> bool:
-	if arguments.has(argument_type):
-		return arguments[argument_type] >= required_amount
+	if arguments.has(ArgumentType.keys()[argument_type]):
+		return arguments[ArgumentType.keys()[argument_type]] >= required_amount
 	else:
 		return false
 
-func consume_arguments(argument_type, amount_to_consume):
-	if arguments.has(argument_type):
-		arguments[argument_type] -= amount_to_consume
-	_on_interface_change.emit()
+func consume_arguments(argument_type, amount_to_consume) -> bool:
+	if has_enough_arguments(argument_type, 1):
+		arguments[ArgumentType.keys()[argument_type]] -= amount_to_consume
+		_on_interface_change.emit()
+		return true
+	return false
 
 func adjust_innocence(amount):
 	innocence_value += amount
