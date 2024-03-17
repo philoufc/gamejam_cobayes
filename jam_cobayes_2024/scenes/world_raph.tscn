@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c21edo73cr3ae"]
+[gd_scene load_steps=22 format=3 uid="uid://c21edo73cr3ae"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_3ue3l"]
 [ext_resource type="PackedScene" uid="uid://b0v3yopsj2572" path="res://scenes/ui.tscn" id="3_b5u1l"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b1jruahbg4kn2" path="res://scenes/world.tscn" id="8_fcl5p"]
 [ext_resource type="PackedScene" uid="uid://c1do64x0inloy" path="res://scenes/pigeon.tscn" id="10_j30v3"]
 [ext_resource type="PackedScene" uid="uid://bp3xcick608df" path="res://scenes/chair.tscn" id="10_ogjc6"]
+[ext_resource type="PackedScene" uid="uid://byoy4l170k0au" path="res://scenes/tigre_blanc.tscn" id="11_auolc"]
 [ext_resource type="PackedScene" path="res://scenes/lampe.tscn" id="11_h3kv4"]
 [ext_resource type="Texture2D" uid="uid://8v8hgx1bade6" path="res://assets/textures/Orbre2.png" id="12_x7tfw"]
 [ext_resource type="PackedScene" uid="uid://bku4wtxem6g2s" path="res://scenes/Fleurs.tscn" id="13_84y6n"]
@@ -250,6 +251,9 @@ position = Vector2(-116, -1)
 [node name="Argument2" parent="." instance=ExtResource("5_h01j3")]
 position = Vector2(489, -90)
 
+[node name="Argument" parent="." instance=ExtResource("5_h01j3")]
+position = Vector2(-116, -1)
+
 [node name="Argument3" parent="." instance=ExtResource("5_h01j3")]
 position = Vector2(-703, -242)
 
@@ -270,6 +274,15 @@ world = ExtResource("8_fcl5p")
 limit = 50
 
 [node name="Timer" type="Timer" parent="Spawner_mob"]
+autostart = true
+
+[node name="Spawner_tiger" type="Node" parent="."]
+script = ExtResource("6_f2t60")
+entity = ExtResource("11_auolc")
+world = ExtResource("8_fcl5p")
+limit = 34
+
+[node name="Timer" type="Timer" parent="Spawner_tiger"]
 autostart = true
 
 [node name="Spawner_pigeon" type="Node" parent="."]
@@ -612,5 +625,6 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("17_fuuv3")
 
 [connection signal="timeout" from="Spawner_mob/Timer" to="Spawner_mob" method="_on_timer_timeout"]
+[connection signal="timeout" from="Spawner_tiger/Timer" to="Spawner_tiger" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner_pigeon/Timer" to="Spawner_pigeon" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner_arguments/Timer" to="Spawner_arguments" method="_on_timer_timeout"]

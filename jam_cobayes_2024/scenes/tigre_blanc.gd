@@ -6,11 +6,11 @@ var is_moving: bool
 @onready var astar_grid: AStarGrid2D
 @onready var target_position: Vector2
 @onready var tile_map_rect: Rect2
-const SPEED = 25
+const SPEED = 60
 
 func _ready():
 	astar_grid = player.astar_grid
-	$AnimatedSprite2D.play("pigeon_side")
+	$AnimatedSprite2D.play("tiger_side")
 	tile_map_rect = tile_map.get_used_rect()
 	update_target_position()
 	print(target_position)
@@ -18,8 +18,8 @@ func _ready():
 func _physics_process(delta):
 	if global_position != target_position:
 		global_position = global_position.move_toward(target_position, delta * SPEED)
-
-
+		$AnimatedSprite2D.flip_h =  global_position.x > target_position.x
+	
 func _on_timer_timeout():
 	update_target_position()
 

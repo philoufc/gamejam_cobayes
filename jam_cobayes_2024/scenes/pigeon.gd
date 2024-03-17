@@ -18,7 +18,8 @@ func _ready():
 func _physics_process(delta):
 	if global_position != target_position:
 		global_position = global_position.move_toward(target_position, delta * SPEED)
-
+		$AnimatedSprite2D.flip_h =  global_position.x > target_position.x
+	
 
 func _on_timer_timeout():
 	update_target_position()
