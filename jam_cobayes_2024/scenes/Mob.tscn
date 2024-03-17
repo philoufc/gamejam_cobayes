@@ -1,8 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4vyppu70k8m2"]
+[gd_scene load_steps=7 format=3 uid="uid://b4vyppu70k8m2"]
 
 [ext_resource type="Script" path="res://scenes/Mob.gd" id="1_rybf6"]
 [ext_resource type="PackedScene" uid="uid://c7cal5c1tskm" path="res://scenes/Slime.tscn" id="2_f4qou"]
-[ext_resource type="PackedScene" path="res://scenes/text_box.tscn" id="2_pawti"]
+[ext_resource type="PackedScene" uid="uid://dyq3e2qpsjmo2" path="res://scenes/text_box.tscn" id="2_pawti"]
+
+[sub_resource type="Gradient" id="Gradient_qtrk5"]
+colors = PackedColorArray(0.509286, 0.509286, 0.509286, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gruf0"]
+gradient = SubResource("Gradient_qtrk5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.884615, 0.162393)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j53vs"]
 radius = 4.0
@@ -11,6 +20,9 @@ height = 8.0
 [node name="Mob" type="Area2D" groups=["mobs"]]
 script = ExtResource("1_rybf6")
 text_box_scene = ExtResource("2_pawti")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_gruf0")
 
 [node name="Slime" parent="." instance=ExtResource("2_f4qou")]
 scale = Vector2(2, 2)

@@ -38,6 +38,7 @@ func _ready():
 	$Slime.self_modulate = GameManager.colors[mob_type]
 	astar_grid = player.astar_grid
 	$Slime/AnimationPlayer.play("Slime_Basic")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
