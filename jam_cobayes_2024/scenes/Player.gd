@@ -40,9 +40,6 @@ func _input(event):
 	if event.is_action_pressed("move") == false:
 		return
 	
-	#TODO: remove ceci
-	GameManager.display_player_stats()
-	
 	var id_path
 	
 	if is_moving:

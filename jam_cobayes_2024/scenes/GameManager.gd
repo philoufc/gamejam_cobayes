@@ -74,6 +74,8 @@ func consume_arguments(argument_type, amount_to_consume):
 func adjust_innocence(amount):
 	innocence_value += amount
 	_on_interface_change.emit()
+	if innocence_value <= 0:
+		game_over()
 
 func get_innocence() -> int:
 	return innocence_value
@@ -84,9 +86,7 @@ func update_elapsed_time(delta):
 func get_age():
 	return str(int(elapsed_time / 6))
 
-func display_player_stats():
-	print(arguments)
-	print(get_age())
-	print("elapsed time: ", elapsed_time)
-	print(Time.get_ticks_msec())
-	print("\n\n\n")
+func game_over():
+	#TODO: ploguer la bonne scène pour fin de jeu
+	print("GAME OVER BÉBÉ")
+	get_tree().change_scene_to_file("res://scenes/pedo.tscn")

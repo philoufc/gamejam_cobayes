@@ -12,6 +12,8 @@ extends Control
 }
 @onready var age_label = $PanelContainer/TopBar/HBoxContainer/AgeLabel
 @onready var progress_bar = $PanelContainer/TopBar/HBoxContainer/MarginContainer/ProgressBar
+@onready var innocence_label = $PanelContainer/TopBar/HBoxContainer/MarginContainer/ProgressBar/InnocenceLabel
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,3 +40,4 @@ func _on_interface_change():
 	
 	# Update progress bar
 	progress_bar.value = GameManager.innocence_value
+	innocence_label.text = "%s / 7" % GameManager.innocence_value
