@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7u4071e2i44m"]
+
+[ext_resource type="Script" path="res://scenes/pigeon.gd" id="1_ks0sg"]
+[ext_resource type="Texture2D" uid="uid://jo3skwp1qh42" path="res://assets/textures/animaux.png" id="1_n8o77"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elc7d"]
+atlas = ExtResource("1_n8o77")
+region = Rect2(0, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3onk7"]
+atlas = ExtResource("1_n8o77")
+region = Rect2(16, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41p4x"]
+atlas = ExtResource("1_n8o77")
+region = Rect2(32, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocdyo"]
+atlas = ExtResource("1_n8o77")
+region = Rect2(48, 240, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fxu6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elc7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3onk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41p4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocdyo")
+}],
+"loop": true,
+"name": &"pigeon_side",
+"speed": 5.0
+}]
+
+[node name="Pigeon" type="Sprite2D"]
+script = ExtResource("1_ks0sg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_fxu6c")
+animation = &"pigeon_side"
+frame_progress = 0.855278
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
