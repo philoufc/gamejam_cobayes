@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf43uc7ngjtei"]
+[gd_scene load_steps=11 format=3 uid="uid://bf43uc7ngjtei"]
 
 [ext_resource type="Texture2D" uid="uid://10rfddiivfqu" path="res://assets/tableau.png" id="1_fx4s1"]
+[ext_resource type="Script" path="res://scenes/game_interface.gd" id="1_yn6io"]
 [ext_resource type="Texture2D" uid="uid://bf1c0ixf26vh7" path="res://assets/argument.png" id="2_uprxw"]
 [ext_resource type="FontFile" uid="uid://smhqt13mvvsu" path="res://assets/Retro Gaming.ttf" id="3_xayjx"]
 [ext_resource type="Texture2D" uid="uid://psqq3cgd4fib" path="res://assets/age.png" id="4_o0pr8"]
@@ -31,12 +32,14 @@ border_width_bottom = 5
 border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="GameInterface" type="Control"]
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yn6io")
 
 [node name="Inventory" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -244,4 +247,6 @@ theme_override_fonts/font = ExtResource("3_xayjx")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/background = SubResource("StyleBoxTexture_vtkjb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7vgar")
-value = 50.0
+max_value = 7.0
+value = 7.0
+rounded = true

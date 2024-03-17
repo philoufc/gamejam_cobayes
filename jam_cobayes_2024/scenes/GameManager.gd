@@ -4,6 +4,8 @@ var innocence_value = 7
 var elapsed_time = 0
 var arguments = {}
 
+signal _on_interface_change()
+
 enum ArgumentType {
 	LUST,
 	GLUTTONY,
@@ -34,6 +36,9 @@ func _ready():
 
 func _process(delta):
 	update_elapsed_time(delta)
+	
+	if int(elapsed_time) % 6 == 0:
+		_on_interface_change.emit()
 
 
 func collect_argument(argument_type):
@@ -64,9 +69,11 @@ func has_enough_arguments(argument_type, required_amount) -> bool:
 func consume_arguments(argument_type, amount_to_consume):
 	if arguments.has(argument_type):
 		arguments[argument_type] -= amount_to_consume
+	_on_interface_change.emit()
 
 func adjust_innocence(amount):
 	innocence_value += amount
+	_on_interface_change.emit()
 
 func get_innocence() -> int:
 	return innocence_value
@@ -75,7 +82,7 @@ func update_elapsed_time(delta):
 	elapsed_time += delta
 
 func get_age():
-	return int(elapsed_time / 6)
+	return str(int(elapsed_time / 6))
 
 func display_player_stats():
 	print(arguments)
@@ -83,7 +90,3 @@ func display_player_stats():
 	print("elapsed time: ", elapsed_time)
 	print(Time.get_ticks_msec())
 	print("\n\n\n")
-
-func update_ui_stats():
-	pass
-	#TODO: quand l'ui va être prêt
