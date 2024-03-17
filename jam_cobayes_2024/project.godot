@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="jam_cobayes_2024"
-run/main_scene="res://scenes/world_raph.tscn"
+run/main_scene="res://scenes/start_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://scenes/GameManager.gd"
+AudioManager="*res://scenes/audio_manager.tscn"
 
 [display]
 

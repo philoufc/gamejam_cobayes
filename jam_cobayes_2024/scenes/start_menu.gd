@@ -1,6 +1,8 @@
 extends Node2D
 
+
 func _on_button_start_button_down():
+	AudioManager.play_music(AudioManager.COBAYES_02)
 	get_tree().change_scene_to_file("res://scenes/world_raph.tscn")
 
 

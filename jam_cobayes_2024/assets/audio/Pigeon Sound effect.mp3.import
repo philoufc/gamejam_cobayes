@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dm31pdg1mldj1"
+path="res://.godot/imported/Pigeon Sound effect.mp3-49384b64dffdaa43bb98c4036aec7e90.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Pigeon Sound effect.mp3"
+dest_files=["res://.godot/imported/Pigeon Sound effect.mp3-49384b64dffdaa43bb98c4036aec7e90.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
