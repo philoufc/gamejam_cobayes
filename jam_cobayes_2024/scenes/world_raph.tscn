@@ -243,6 +243,7 @@ autostart = true
 script = ExtResource("6_f2t60")
 entity = ExtResource("7_tdlst")
 world = ExtResource("8_fcl5p")
+limit = 50
 
 [node name="Timer" type="Timer" parent="Spawner"]
 autostart = true

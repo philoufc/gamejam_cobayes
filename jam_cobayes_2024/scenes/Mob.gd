@@ -5,8 +5,13 @@ extends RigidBody2D
 @onready var astar_grid: AStarGrid2D
 @onready var path_line: Line2D
 @onready var target_position: Vector2
+var rng = RandomNumberGenerator.new()
+var mob_type
 
 func _ready():
+	$UpdatePositionTimer.wait_time = randf_range(0.84, 1.42)
+	mob_type = rng.randi_range(GameManager.ArgumentType.LUST, GameManager.ArgumentType.NO)
+	modulate = GameManager.colors[mob_type]
 	astar_grid = player.astar_grid
 	$Slime/AnimationPlayer.play("Slime_Basic")
 
@@ -31,7 +36,8 @@ func _on_update_position():
 		if target_position == tile_map.map_to_local(id_path.front()):
 			id_path.pop_front()
 		target_position = tile_map.map_to_local(id_path.front())
-	print("target_position", target_position)
+	
+	#print("target_position", target_position)
 
 func drawLine(id_path: Array[Vector2i]):
 	pass
