@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4vyppu70k8m2"]
 
 [ext_resource type="Script" path="res://scenes/Mob.gd" id="1_rybf6"]
-[ext_resource type="PackedScene" path="res://scenes/Slime.tscn" id="2_f4qou"]
-[ext_resource type="PackedScene" uid="uid://dhigmknc753m6" path="res://scenes/text_box.tscn" id="2_pawti"]
+[ext_resource type="PackedScene" uid="uid://c7cal5c1tskm" path="res://scenes/Slime.tscn" id="2_f4qou"]
+[ext_resource type="PackedScene" path="res://scenes/text_box.tscn" id="2_pawti"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j53vs"]
 radius = 4.0
