@@ -722,7 +722,11 @@ label_settings = SubResource("LabelSettings_is6x8")
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="AspectRatioContainer/CenterContainer/MarginContainer/VBoxContainer"]
+clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_mh8ny")
+theme_override_font_sizes/font_size = 16
 text = "Rejouer"
 
 [connection signal="pressed" from="AspectRatioContainer/CenterContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
