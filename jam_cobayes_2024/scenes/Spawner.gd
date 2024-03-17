@@ -16,8 +16,9 @@ func _process(_delta):
 	pass
 
 func _on_timer_timeout():
-	if count > limit:
+	if count > limit || $"../Player" == null:
 		return
+		
 	count += 1
 	var x = int(tile_map_rect.position.x) + (randi() % int(tile_map_rect.size.x))
 	var y = int(tile_map_rect.position.y) + (randi() % int(tile_map_rect.size.y))

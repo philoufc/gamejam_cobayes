@@ -25,6 +25,9 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 func _on_update_position():
+	if player == null:
+		return
+
 	var start = tile_map.local_to_map(global_position)
 	var destination = tile_map.local_to_map(player.position)
 	var id_path = astar_grid.get_id_path(
