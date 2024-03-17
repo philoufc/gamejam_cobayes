@@ -69,10 +69,13 @@ func _input(event):
 
 func _physics_process(delta):
 	if current_id_path.is_empty():
+		AudioManager.walk_sfx_stream_player.stop()
 		return
 	
 	if is_moving == false:
 		target_position = tile_map.map_to_local(current_id_path.front())
+		if not AudioManager.walk_sfx_stream_player.playing:
+			AudioManager.walk_sfx()
 		is_moving = true
 	
 	

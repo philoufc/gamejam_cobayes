@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck6mkwfqepp1x"]
+[gd_scene load_steps=3 format=3 uid="uid://ck6mkwfqepp1x"]
 
 [ext_resource type="Script" path="res://scenes/audio_manager.gd" id="1_3hahc"]
+[ext_resource type="AudioStream" uid="uid://txadfdwmqgcm" path="res://assets/audio/Valorant  Footstep Sound Effect.mp3" id="2_r455f"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_3hahc")
@@ -9,4 +10,8 @@ script = ExtResource("1_3hahc")
 bus = &"Music"
 
 [node name="SFXStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="WalkSFXStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_r455f")
 bus = &"SFX"
