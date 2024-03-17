@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4wumttxvajdb"]
+[gd_scene load_steps=3 format=3 uid="uid://bg0a5pq7ht74c"]
 
 [ext_resource type="Script" path="res://scenes/Decorations_Set.gd" id="1_wba2c"]
 [ext_resource type="Texture2D" uid="uid://cwndxsnl5ikhc" path="res://assets/textures/pxArt (3).png" id="2_j1g8t"]
 
 [node name="DecorationsSet" type="Sprite2D"]
 script = ExtResource("1_wba2c")
-decorations = 7
+decorations = 1
 
 [node name="Fontaine" type="Sprite2D" parent="."]
 texture = ExtResource("2_j1g8t")
