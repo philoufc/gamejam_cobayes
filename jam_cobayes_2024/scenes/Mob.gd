@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var text_box_scene: PackedScene
 @onready var tile_map = $"../../World/TileMap"
 @onready var player = $"../../Player"
 @onready var astar_grid: AStarGrid2D
@@ -8,10 +9,33 @@ extends Area2D
 var rng = RandomNumberGenerator.new()
 var mob_type
 
+var has_talked = false
+
+var dialogs = [
+"Plus tard, peut-être demain.",
+"Veux tu une clope?",
+"Pourquoi partager quand tu peux tout garder pour toi?",
+"La vengeance est un plat qui se mange froid.",
+"L'argent est le pouvoir!",
+"Laisse les autres faire le travail à ta place.",
+"Une petite vite, ça te dis?",
+"La pelouse est toujours plus verte ailleurs.",
+"Tu es tellement génial que même les miroirs te flattent.",
+"On se fais un p'tit resto?",
+"TOUJOURS PLUS!",
+"Ça peux attendre demain...",
+"T'as tu déjà manger du rhinocéros?",
+"Remet rien en cause tu as toujours raison!",
+"Come on, juste une puff.",
+"Jt'a boute!!",
+"T'es pas toi quand t'as faim.",
+"Je vais péter un câble!",
+]
+
 func _ready():
 	$UpdatePositionTimer.wait_time = randf_range(0.84, 1.42)
 	mob_type = rng.randi_range(GameManager.ArgumentType.LUST, GameManager.ArgumentType.NO)
-	modulate = GameManager.colors[mob_type]
+	$Slime.self_modulate = GameManager.colors[mob_type]
 	astar_grid = player.astar_grid
 	$Slime/AnimationPlayer.play("Slime_Basic")
 
@@ -25,6 +49,13 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 func _on_update_position():
+	if not has_talked and rng.randi_range(0, 15) == 7:
+		# Instantiate the scene
+		var text_box = text_box_scene.instantiate()
+		add_child(text_box)
+		text_box.display_text(dialogs[rng.randi_range( 0, dialogs.size() - 1)])
+		has_talked = true
+	
 	if player == null:
 		return
 

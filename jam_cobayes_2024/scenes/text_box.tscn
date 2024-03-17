@@ -10,6 +10,7 @@ offset_bottom = 21.0
 script = ExtResource("1_knqil")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 2
 texture = ExtResource("2_fsqqk")
 patch_margin_left = 4
@@ -31,6 +32,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_i6fas")
 theme_override_font_sizes/font_size = 10
+text = "allo"
 vertical_alignment = 1
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
