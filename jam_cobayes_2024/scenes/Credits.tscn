@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyr5gnhou5pmn"]
+
+[ext_resource type="Script" path="res://scenes/Credits.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://smhqt13mvvsu" path="res://assets/Retro Gaming.ttf" id="2_3hldx"]
+
+[sub_resource type="Animation" id="2"]
+resource_name = "haut-milieu"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(100, -300), Vector2(100, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(0, -2000), Vector2(0, 100)]
+}
+
+[sub_resource type="Animation" id="3"]
+resource_name = "milieu-bas"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(100, 500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(0, 100), Vector2(0, 2000)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ff3r"]
+_data = {
+"haut-milieu": SubResource("2"),
+"milieu-bas": SubResource("3")
+}
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -224.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.000476964
+theme_override_fonts/normal_font = ExtResource("2_3hldx")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]credits
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RichTextLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_3ff3r")
+}
+
+[node name="Minuteur" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Musique" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[connection signal="timeout" from="Minuteur" to="." method="_on_Minuteur_timeout"]

@@ -34,7 +34,7 @@ var dialogs = [
 
 func _ready():
 	$UpdatePositionTimer.wait_time = randf_range(0.84, 1.42)
-	mob_type = rng.randi_range(GameManager.ArgumentType.LUST, GameManager.ArgumentType.NO)
+	mob_type = rng.randi_range(GameManager.ArgumentType.LUST, GameManager.ArgumentType.PRIDE)
 	$Slime.self_modulate = GameManager.colors[mob_type]
 	astar_grid = player.astar_grid
 	$Slime/AnimationPlayer.play("Slime_Basic")
