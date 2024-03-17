@@ -653,6 +653,7 @@ stretch_mode = 3
 
 [node name="TextureRect4" type="TextureRect" parent="."]
 self_modulate = Color(0.360784, 0.243137, 0.243137, 1)
+layout_mode = 0
 offset_left = 464.0
 offset_top = 416.0
 offset_right = 1112.0
