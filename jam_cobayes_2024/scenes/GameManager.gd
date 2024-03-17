@@ -94,8 +94,8 @@ func get_age():
 func game_over():
 	get_tree().change_scene_to_file("res://scenes/mort_screen.tscn")
 	
+func init():
 	innocence_value = 7
 	elapsed_time = 0
-
 	for argument_type in ArgumentType:
 		arguments[argument_type] = 0
