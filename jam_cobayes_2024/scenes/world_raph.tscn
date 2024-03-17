@@ -261,16 +261,16 @@ polygon = PackedVector2Array(-2, 19, 11, 26, 50.5, 7, 37, 0)
 position = Vector2(-116, -1)
 
 [node name="Argument2" parent="." instance=ExtResource("5_h01j3")]
-position = Vector2(-139, 167)
+position = Vector2(489, -90)
 
 [node name="Argument3" parent="." instance=ExtResource("5_h01j3")]
-position = Vector2(-185, 344)
+position = Vector2(-703, -242)
 
 [node name="Argument4" parent="." instance=ExtResource("5_h01j3")]
-position = Vector2(-462, 419)
+position = Vector2(289, 270)
 
 [node name="Argument5" parent="." instance=ExtResource("5_h01j3")]
-position = Vector2(-342, 334)
+position = Vector2(-383, 198)
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -283,6 +283,15 @@ world = ExtResource("8_fcl5p")
 limit = 50
 
 [node name="Timer" type="Timer" parent="Spawner"]
+autostart = true
+
+[node name="argument_spawner" type="Node" parent="."]
+script = ExtResource("6_f2t60")
+entity = ExtResource("5_h01j3")
+world = ExtResource("8_fcl5p")
+
+[node name="Timer" type="Timer" parent="argument_spawner"]
+wait_time = 30.0
 autostart = true
 
 [node name="Chair" parent="." instance=ExtResource("10_ogjc6")]
@@ -585,3 +594,4 @@ color = Color(0.447059, 0.47451, 0.639216, 1)
 blend_mode = 2
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="argument_spawner/Timer" to="argument_spawner" method="_on_timer_timeout"]
