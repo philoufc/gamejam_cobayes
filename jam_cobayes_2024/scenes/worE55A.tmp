@@ -258,19 +258,14 @@ scale = Vector2(-1, -1)
 polygon = PackedVector2Array(-2, 19, 11, 26, 50.5, 7, 37, 0)
 
 [node name="Argument" parent="." instance=ExtResource("5_h01j3")]
-position = Vector2(-116, -1)
 
 [node name="Argument2" parent="." instance=ExtResource("5_h01j3")]
-position = Vector2(489, -90)
 
 [node name="Argument3" parent="." instance=ExtResource("5_h01j3")]
-position = Vector2(-703, -242)
 
 [node name="Argument4" parent="." instance=ExtResource("5_h01j3")]
-position = Vector2(289, 270)
 
 [node name="Argument5" parent="." instance=ExtResource("5_h01j3")]
-position = Vector2(-383, 198)
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -289,7 +284,6 @@ autostart = true
 script = ExtResource("6_f2t60")
 entity = ExtResource("5_h01j3")
 world = ExtResource("8_fcl5p")
-limit = 10
 
 [node name="Timer" type="Timer" parent="argument_spawner"]
 wait_time = 30.0
@@ -552,14 +546,12 @@ position = Vector2(419, -272)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("16_5ny1y")
 
-[node name="Lampes" type="Node2D" parent="."]
-y_sort_enabled = true
+[node name="Lampes" type="Node" parent="."]
 
 [node name="Lampe2" parent="Lampes" instance=ExtResource("11_h3kv4")]
 position = Vector2(-64, -120)
 
 [node name="Lampe" parent="Lampes" instance=ExtResource("11_h3kv4")]
-y_sort_enabled = true
 position = Vector2(-192, -56)
 
 [node name="Lampe7" parent="Lampes" instance=ExtResource("11_h3kv4")]
