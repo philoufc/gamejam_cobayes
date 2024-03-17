@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 
 @onready var tile_map = $"../../World/TileMap"
 @onready var player = $"../../Player"
@@ -46,3 +46,15 @@ func drawLine(id_path: Array[Vector2i]):
 		#path_line.add_point(tile_map.map_to_local(p))
 		#path_line.top_level = true
 
+
+func _on_area_entered(area):
+	if area.name == "Player":
+		GameManager.adjust_innocence(-1)
+		area.kill_nearby_enemies()
+
+
+func die():
+	var tween = create_tween()
+	tween.tween_property(self, "position", position + Vector2(0, -20), 0.5)
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(self.queue_free)

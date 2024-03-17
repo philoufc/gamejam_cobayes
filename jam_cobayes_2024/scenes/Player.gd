@@ -2,12 +2,14 @@ extends Node2D
 
 @onready var tile_map = $"../World/TileMap"
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var scan_nearby_enemies = $ScanNearbyEnemies
 
 
 var astar_grid: AStarGrid2D
 var current_id_path: Array[Vector2i]
 var target_position: Vector2
 var is_moving: bool
+var nearby_enemies:Array
 const SPEED = 100
 
 func _ready():
@@ -114,4 +116,18 @@ func walk(dir_degree :float) -> void:
 	elif dir_degree <= -5*PI/8 && dir_degree > -7*PI/8:
 		animated_sprite_2d.play("walk_up_left")
 	
-		
+
+
+
+func _on_scan_nearby_enemies_area_entered(area):
+	if area.is_in_group("mobs"):
+		nearby_enemies.append(area)
+
+func kill_nearby_enemies():
+	for enemy in nearby_enemies:
+		print("enemy: ", enemy)
+		var tween = create_tween()
+		tween.tween_property(self, "position", position + Vector2(0, -20), 0.5)
+		tween.tween_property(self, "modulate:a", 0.0, 0.5)
+		tween.tween_callback(self.queue_free)
+		nearby_enemies.erase(enemy)

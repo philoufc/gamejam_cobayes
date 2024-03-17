@@ -67,6 +67,7 @@ func consume_arguments(argument_type, amount_to_consume):
 
 func adjust_innocence(amount):
 	innocence_value += amount
+	prints(amount, "DAMAGE!!")
 
 func get_innocence() -> int:
 	return innocence_value
