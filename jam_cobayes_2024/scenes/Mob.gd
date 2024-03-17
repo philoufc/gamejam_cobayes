@@ -56,6 +56,9 @@ func _on_update_position():
 		text_box.display_text(dialogs[rng.randi_range( 0, dialogs.size() - 1)])
 		has_talked = true
 	
+	if player == null:
+		return
+
 	var start = tile_map.local_to_map(global_position)
 	var destination = tile_map.local_to_map(player.position)
 	var id_path = astar_grid.get_id_path(
