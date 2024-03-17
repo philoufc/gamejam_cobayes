@@ -12,4 +12,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
+	GameManager.init()
 	get_tree().change_scene_to_file("res://scenes/world_raph.tscn")

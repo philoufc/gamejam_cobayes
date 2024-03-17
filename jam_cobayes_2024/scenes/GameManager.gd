@@ -87,6 +87,10 @@ func get_age():
 	return str(int(elapsed_time / 6))
 
 func game_over():
-	#TODO: ploguer la bonne scène pour fin de jeu
-	print("GAME OVER BÉBÉ")
 	get_tree().change_scene_to_file("res://scenes/mort_screen.tscn")
+
+func init():
+	innocence_value = 7
+	elapsed_time = 0
+
+
