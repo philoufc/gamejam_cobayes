@@ -84,7 +84,7 @@ func _on_update_position():
 
 func _on_area_entered(area):
 	if area.name == "Player":
-		monitoring = false
+		set_deferred("monitoring", false)
 		GameManager.adjust_innocence(-1)
 		area.kill_nearby_enemies()
 
