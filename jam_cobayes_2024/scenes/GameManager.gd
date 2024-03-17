@@ -89,4 +89,4 @@ func get_age():
 func game_over():
 	#TODO: ploguer la bonne scène pour fin de jeu
 	print("GAME OVER BÉBÉ")
-	get_tree().change_scene_to_file("res://scenes/pedo.tscn")
+	get_tree().change_scene_to_file("res://scenes/mort_screen.tscn")
