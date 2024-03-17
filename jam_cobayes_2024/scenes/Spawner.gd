@@ -2,7 +2,7 @@ extends Node
 
 @export var entity: PackedScene
 @export var world: PackedScene
-@export var limit = 10;
+@export var limit: int;
 var tile_map_rect: Rect2
 var count = 0
 

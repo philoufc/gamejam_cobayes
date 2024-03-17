@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6jpweb4a5qmm"]
+[gd_scene load_steps=7 format=3 uid="uid://b6jpweb4a5qmm"]
 
 [ext_resource type="Script" path="res://scenes/argument.gd" id="1_xlfvg"]
 [ext_resource type="Texture2D" uid="uid://bf1c0ixf26vh7" path="res://assets/argument.png" id="2_mt6m5"]
@@ -6,7 +6,34 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euheu"]
 size = Vector2(60, 60)
 
+[sub_resource type="Animation" id="Animation_46410"]
+resource_name = "bounce"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aly6r"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1yxaj"]
+_data = {
+"RESET": SubResource("Animation_aly6r"),
+"bounce": SubResource("Animation_46410")
+}
+
 [node name="Argument" type="Area2D"]
+top_level = true
 script = ExtResource("1_xlfvg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,5 +42,11 @@ texture = ExtResource("2_mt6m5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_euheu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_1yxaj")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
