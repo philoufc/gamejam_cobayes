@@ -11,12 +11,12 @@ var titre :Dictionary = {
 }
 
 var sousTitre :Dictionary = {
-	0: "Tu crois maintenant que tu as toujours raison. Lourd...",
-	1: "Tu ne seras éternellement insatisfait!",
+	0: "Tu crois que tu as toujours raison. Lourd...",
+	1: "Tu seras éternellement insatisfait!",
 	2: "La jalousie maladive t'a emportée.",
 	3: "Tu es devenu bélier ascendant colérique!", 
 	4: "Ta richesse a semé la solitude autour de toi.",
-	5: "Tes sentiments ont fini par te manger...", 
+	5: "Tes sentiments ont finis par te manger...", 
 	6: "Te voilà fossilisé dans l'inaction."
 }
 
