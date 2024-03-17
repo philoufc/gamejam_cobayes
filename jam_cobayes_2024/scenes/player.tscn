@@ -617,7 +617,7 @@ radius = 8.0
 height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7i2r1"]
-radius = 100.0
+radius = 64.1249
 
 [sub_resource type="Gradient" id="Gradient_62x56"]
 colors = PackedColorArray(0.761837, 0.415253, 0.0336078, 1, 0, 0, 0, 1)

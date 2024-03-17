@@ -708,6 +708,12 @@ layout_mode = 2
 theme_override_constants/separation = 15
 script = ExtResource("3_e1gfq")
 
+[node name="Age" type="Label" parent="AspectRatioContainer/CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "test"
+label_settings = SubResource("LabelSettings_3ywpi")
+horizontal_alignment = 1
+
 [node name="Title" type="Label" parent="AspectRatioContainer/CenterContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "test"

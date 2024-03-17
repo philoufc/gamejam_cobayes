@@ -27,9 +27,9 @@ func _ready():
 	var from = 0
 	var to = titre.size() - 1
 	var index = rng.randi_range(from, to)
+	$Age.text = str("À l'âge de ", str(GameManager.get_age()), " ans")
 	$Title.text = titre[index]
 	$SubTitle.text = sousTitre[index]
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
