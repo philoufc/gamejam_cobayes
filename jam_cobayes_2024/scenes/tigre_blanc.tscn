@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://byoy4l170k0au"]
+[gd_scene load_steps=16 format=3 uid="uid://byoy4l170k0au"]
 
 [ext_resource type="Texture2D" uid="uid://jo3skwp1qh42" path="res://assets/textures/animaux.png" id="1_fb72j"]
+[ext_resource type="Script" path="res://scenes/tigre_blanc.gd" id="1_twja5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iqt33"]
 atlas = ExtResource("1_fb72j")
@@ -105,8 +106,8 @@ animations = [{
 }]
 
 [node name="TigreBlanc" type="Sprite2D"]
+script = ExtResource("1_twja5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_knl7s")
-animation = &"tiger_back"
-frame_progress = 0.35468
+animation = &"tiger_side"
